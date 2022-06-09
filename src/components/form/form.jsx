@@ -1,12 +1,12 @@
 import { useRef } from "react"
 
-export const Form = ({ setTodos, todos }) => {
+export const Form = ({ setTodos }) => {
 
     const inputRef = useRef(null)
     const addTodo = (evt) =>{
         evt.preventDefault()
         const newTodo = {
-            id: new Date().setTime(),
+            id: new Date().getTime(),
             text: inputRef.current.value,
             isCompleated: false
         }
