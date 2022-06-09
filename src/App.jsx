@@ -5,11 +5,15 @@ import { Todos } from "./components/todos/todos"
 
 
 export const App = () => {
-    const [todos, setTodos] = useState([])
+    const [todos, setTodos] = useState(JSON.parse(window.localStorage.getItem("keys")) || [])
     return (
         <div>
-            <Form setTodos={setTodos}/>
-            <Todos todos={todos}/>
+            <Form setTodos={setTodos}>
+            </Form> 
+            <Todos todos={todos}>
+            </Todos>
+            {window.localStorage.setItem("keys", JSON.stringify(todos))}
+
         </div>
     )
 }
