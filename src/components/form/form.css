@@ -1,0 +1,79 @@
+#root {
+    max-width: 1220px;
+    padding: 10px;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 20vw;
+    top: 25vh;
+}
+
+.input {
+    width: 50vw;
+    height: 2vw;
+    margin-right: 5px;
+    border: 3px solid #0e9;
+    border-radius: 15px;
+}
+
+[placeholder] {
+    text-align: center;
+    font-size: 17px;
+}
+
+.button {
+    background: #090;
+    border: 0;
+    border-radius: 15px;
+    padding: 10px 15px;
+    color: #fff;
+}
+
+.list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 20vw;
+    top: 55vh;
+}
+
+.item {
+    display: flex;
+    max-width: 500px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.check {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.text {
+    font-size: 24px;
+    margin: 0;
+    margin-right: 10px;
+}
+
+.edit {
+    background-color: yellow;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 7px;
+    margin-right: 5px;
+    color: #000
+}
+
+.delete {
+    background-color: red;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 7px;
+    color: white
+}
