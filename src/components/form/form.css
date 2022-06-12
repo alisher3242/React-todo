@@ -38,7 +38,7 @@
     padding: 0;
     position: absolute;
     left: 20vw;
-    top: 55vh;
+    top: 45vh;
 }
 
 .item {
@@ -47,6 +47,10 @@
     width: 100%;
     align-items: center;
     justify-content: space-between;
+}
+
+#item-active {
+    text-decoration: line-through;
 }
 
 .check {
@@ -67,7 +71,8 @@
     padding: 5px 10px;
     border-radius: 7px;
     margin-right: 5px;
-    color: #000
+    color: #000;
+    cursor: pointer;
 }
 
 .delete {
@@ -75,5 +80,6 @@
     border: none;
     padding: 5px 10px;
     border-radius: 7px;
-    color: white
+    color: white;
+    cursor: pointer;
 }
