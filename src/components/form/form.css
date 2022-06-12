@@ -83,3 +83,9 @@
     color: white;
     cursor: pointer;
 }
+
+.btns {
+    position: absolute;
+    top: 12vh;
+    left: 70vh;
+}
