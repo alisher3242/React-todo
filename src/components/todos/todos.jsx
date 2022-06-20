@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-export const Todos = ({ setTodos, todos }) => {
+export const Todos = ({ setTodos, todos, filtered, setFiltered }) => {
 
     const deleteBtn = (id) => {
         const deleteFiltered = todos.filter(todo => todo.id !== id)
@@ -19,25 +19,27 @@ export const Todos = ({ setTodos, todos }) => {
         todos[foundIndex].isCompleated = evt.target.checked
         setTodos([...todos])
     }
-    const allBtn = () => {
-        setTodos(todos)
-    }
 
-    const isCompleatedBtn = () => {
-        const isCompleateFiltered = todos.filter(todo => todo.isCompleated === true)
-        setTodos(isCompleateFiltered)   
-    }
+    useEffect(() => {
+        setFiltered(todos)
+    },[todos])
+
+    const filterTodo = (isCompleated) => {
+
+        
+        if (isCompleated === "all") {
+            setFiltered(todos)
+        } else{
+            const newTodo = [...todos].filter(todo => isCompleated === todo.isCompleated)
+            setFiltered(newTodo)
+        }
+    } 
     
-    const unCompleatedBtn = () => {
-        const unCompleateFiltered = todos.filter(todo => todo.isCompleated === false)
-        setTodos(unCompleateFiltered)
-    }
-
     return (
         <div>
             <ul className="list">
                 {
-                    todos.map(todo => (
+                    filtered.map(todo => (
                         <li key={todo.id} className="item">
                             <input checked={todo.isCompleated} onChange={(evt) => checkBtn(evt, todo.id)} type="checkbox" className="check" />
                             <p className="text" id={todo.isCompleated ? "item-active" : "#"}>{todo.text}</p>
@@ -47,14 +49,10 @@ export const Todos = ({ setTodos, todos }) => {
                     ))
                 }
             </ul>
-            <div className="btns">
-                <button onClick={allBtn} className="btn btn-success me-1">All <span>{todos.length}</span></button>
-                <button onClick={isCompleatedBtn} className="btn btn-primary me-1">Compleated <span>
-                    {todos.filter(item => item.isCompleated === true).length}
-                </span></button>
-                <button onClick={unCompleatedBtn} className="btn btn-danger me-1">Uncompleated <span>
-                    {todos.filter(item => item.isCompleated === false).length}
-                </span></button>
+            <div className="btns">  
+                <button onClick={() => filterTodo("all")} className="btn btn-success me-1">All</button>
+                <button onClick={() => filterTodo(true)} className="btn btn-primary me-1">Compleated</button>
+                <button onClick={() => filterTodo(false)} className="btn btn-danger me-1">Uncompleated</button>
             </div>
         </div>
 
